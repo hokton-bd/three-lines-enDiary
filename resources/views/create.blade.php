@@ -8,8 +8,12 @@
     <script src="https://cdn.jsdelivr.net/npm/@grammarly/editor-sdk?clientId=client_AzYKa9hJo7wmF86v7C7rEM"></script>
 </head>
 <body>
-    <grammarly-editor-plugin>
-        <textarea></textarea>
-      </grammarly-editor-plugin>
+    <form action="{{route('diary.store')}}" method="post">
+        @csrf
+        <grammarly-editor-plugin>
+            <textarea name="content" required></textarea>
+        </grammarly-editor-plugin>
+        <input type="submit" value="保存">
+    </form>
 </body>
 </html>
