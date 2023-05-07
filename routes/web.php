@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Diary\CreateDiaryController;
+use App\Http\Controllers\Diary\IndexDiaryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/create', function() {
-    return view('create');
+    return view('diary/create');
 });
 
 Route::post('/diary/store', CreateDiaryController::class)->name('diary.store');
