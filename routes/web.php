@@ -1,8 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\Diary\CreateDiaryController;
-use App\Http\Controllers\Diary\IndexDiaryController;
+use App\Http\Controllers\DiaryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,13 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/create', function() {
+Route::get('/diary/create', function() {
     return view('diary/create');
 });
 
-Route::post('/diary/store', CreateDiaryController::class)->name('diary.store');
+Route::post('/diary/store', [DiaryController::class, 'store'])->name('diary.store');
 
-Route::get('/diary/index', IndexDiaryController::class)->name('diary.index');
+Route::get('/diary/index', [DiaryController::class, 'index'])->name('diary.index');
 
 Route::get('/', function () {
     return view('welcome');
